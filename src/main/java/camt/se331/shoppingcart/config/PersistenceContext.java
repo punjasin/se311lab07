@@ -36,7 +36,17 @@ import java.util.Properties;
 @EnableTransactionManagement(proxyTargetClass = true)
 @EnableJpaRepositories("camt.se331.shoppingcart.repository")
 @PropertySources(value={@PropertySource("classpath:/hibernate.properties")})
+
 class PersistenceContext {
+    @Autowired
+    private Environment env;
+    @Bean
+    public DataSource embedDataSource(){
+        EmbeddedDatabaseBuilder builder=new EmbeddedDatabaseBuilder();
+        EmbeddedDatabase db = builder.setType(EmbeddedDatabaseType.HSQL).build();
+        return db;
+    }
+
     private static final String[] ENTITY_PACKAGES = {
             "camt.se331.shoppingcart.entity"
     };
@@ -45,6 +55,7 @@ class PersistenceContext {
     private static final String PROPERTY_NAME_HIBERNATE_FORMAT_SQL = "hibernate.format_sql";
     private static final String PROPERTY_NAME_HIBERNATE_HBM2DDL_AUTO = "hibernate.hbm2ddl.auto";
     private static final String PROPERTY_NAME_HIBERNATE_SHOW_SQL = "hibernate.show_sql";
+
 
 
     @Bean

@@ -18,7 +18,9 @@ import java.util.Locale;
 @Configuration 
 @ComponentScan(basePackages = {"camt.se331.shoppingcart"})
 @EnableAspectJAutoProxy
+@Import({PersistenceContext.class})
 public class AppConfig extends WebMvcConfigurerAdapter {
+
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/**").addResourceLocations("/views/").setCachePeriod(31556926);
