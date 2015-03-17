@@ -24,13 +24,13 @@
     <!-- Table -->
     <table class="table table-hover">
         <tr>
-            <th>#</th>
-            <th>name</th>
-            <th>description</th>
-            <th class="text-right">net price</th>
-            <th class="text-right">price</th>
-            <th>edit</th>
-            <th>delete</th>
+            <th >#</th>
+            <th translate>listProduct.name</th>
+            <th translate>listProduct.description</th>
+            <th class="text-right" translate>listProduct.netPrice</th>
+            <th class="text-right" translate>listProduct.price</th>
+            <th translate>listProduct.edit</th>
+            <th translate>listProduct.delete</th>
 
         </tr>
         <tr ng-repeat="product in products">
@@ -44,7 +44,7 @@
         </tr>
         <tr>
             <th></th>
-            <th><strong>Total</strong> </th>
+            <th><strong translate>listProduct.total</strong> </th>
             <th></th>
             <th class="text-right">{{totalNetPrice | number}}</th>
             <th></th>

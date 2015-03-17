@@ -2,6 +2,7 @@
 
 <html lang="en" ng-app="labApp">
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>My AngularJS App</title>
@@ -22,7 +23,11 @@
     <script src="js/controller.js"></script>
     <script src="js/productController.js"></script>
     <script src="js/productService.js"></script>
-
+    <!-- add il8n script -->
+    <script src="bower_components/angular-translate/angular-translate.js"></script>
+    <script src="bower_components/angular-translate-loader-url/angular-translate-loader-url.js"></script>
+    <script src="js/languageServices.js"></script>
+    <script src="js/productController.js"></script>
 
 </head>
 <body>
@@ -30,6 +35,16 @@
     <h1>CAMT
         <small>Software Component Based Software Development</small>
     </h1>
+    <div class="navbar navbar-default" ng-controller="languageController">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="" ng-click="changeLanguage('en')">EN</a></li>
+                    <li><a href="" ng-click="changeLanguage('fr')">FR</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
 
 
