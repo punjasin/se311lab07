@@ -1,13 +1,17 @@
 package camt.se331.shoppingcart.config;
   
 
+import com.sun.corba.se.spi.resolver.LocalResolver;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.*;
-import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.config.annotation.*;
+import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
+import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
+
+import java.util.Locale;
 
 @EnableWebMvc
 @Configuration 
@@ -20,6 +24,34 @@ public class AppConfig extends WebMvcConfigurerAdapter {
         registry.addResourceHandler("/js/**").addResourceLocations("/views/js/").setCachePeriod(31556926);
         registry.addResourceHandler("/bower_components/**").addResourceLocations("/views/bower_components/");
     }
+
+    @Bean
+    public LocalResolver localResolver(){
+        final SessionLocaleResolver ret= new SessionLocaleResolver();
+        ret.setDefaultLocale(new Locale("en"));
+        return ret;
+    }
+    @Bean
+    public MessageSource messageSource(){
+        final SerializableResourceBundleMessageSource ret=new SerializableResourceBundleMessageSource();
+        ret.setBasename("classpath:message");
+        ret.setDefaultEncoding("UTF-8");
+        return ret;
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry){
+        registry.addInterceptor(localChangeInterceptor());
+    }
+
+
+    @Bean
+    public HandlerInterceptor localChangeInterceptor(){
+        LocaleChangeInterceptor localeChangeInterceptor=new LocaleChangeInterceptor();
+        localeChangeInterceptor.setParamName("lang");
+        return localeChangeInterceptor;
+    }
+
 
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
