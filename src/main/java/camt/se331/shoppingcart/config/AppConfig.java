@@ -5,6 +5,7 @@ import com.sun.corba.se.spi.resolver.LocalResolver;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.*;
 import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
@@ -26,14 +27,15 @@ public class AppConfig extends WebMvcConfigurerAdapter {
     }
 
     @Bean
-    public SessionLocaleResolver localResolver(){
+    public LocaleResolver localResolver(){
         final SessionLocaleResolver ret= new SessionLocaleResolver();
         ret.setDefaultLocale(new Locale("en"));
         return ret;
     }
     @Bean
     public MessageSource messageSource(){
-        final SerializableResourceBundleMessageSource ret=new SerializableResourceBundleMessageSource();
+        final SerializableResourceBundleMessageSource ret=
+                new SerializableResourceBundleMessageSource();
         ret.setBasename("classpath:message");
         ret.setDefaultEncoding("UTF-8");
         return ret;
