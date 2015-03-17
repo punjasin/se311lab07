@@ -39,9 +39,10 @@
         <div class="container-fluid">
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="" ng-click="changeLanguage('en')">EN</a></li>
-                    <li><a href="" ng-click="changeLanguage('fr')">FR</a></li>
-                    <li><a href="" ng-click="changeLanguage('gr')">GR</a></li>
+                    <li ng-class="{'active':currentLocale=='en'}"><a href="" ng-click="changeLanguage('en')">EN</a></li>
+                    <li ng-class="{'active':currentLocale=='en'}"><a href="" ng-click="changeLanguage('fr')">FR</a></li>
+                    <li ng-class="{'active':currentLocale=='en'}"><a href="" ng-click="changeLanguage('gr')">GR</a></li>
+                    <li ng-class="{'active':currentLocale=='en'}"><a href="" ng-click="changeLanguage('jp')">JP</a></li>
                 </ul>
             </div>
         </div>
