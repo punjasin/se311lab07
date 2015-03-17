@@ -27,7 +27,7 @@
     <script src="bower_components/angular-translate/angular-translate.js"></script>
     <script src="bower_components/angular-translate-loader-url/angular-translate-loader-url.js"></script>
     <script src="js/languageServices.js"></script>
-    <script src="js/productController.js"></script>
+    <script src="js/languageController.js"></script>
 
 </head>
 <body>
