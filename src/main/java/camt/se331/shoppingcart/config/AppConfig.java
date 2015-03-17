@@ -27,7 +27,7 @@ public class AppConfig extends WebMvcConfigurerAdapter {
     }
 
     @Bean
-    public LocaleResolver localResolver(){
+    public LocaleResolver localeResolver(){
         final SessionLocaleResolver ret= new SessionLocaleResolver();
         ret.setDefaultLocale(new Locale("en"));
         return ret;
@@ -43,12 +43,12 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry){
-        registry.addInterceptor(localChangeInterceptor());
+        registry.addInterceptor(localeChangeInterceptor());
     }
 
 
     @Bean
-    public HandlerInterceptor localChangeInterceptor(){
+    public HandlerInterceptor localeChangeInterceptor(){
         LocaleChangeInterceptor localeChangeInterceptor=new LocaleChangeInterceptor();
         localeChangeInterceptor.setParamName("lang");
         return localeChangeInterceptor;

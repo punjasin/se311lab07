@@ -22,6 +22,9 @@ public class SerializebleMessageBundleController {
 
     @Autowired
     SerializableResourceBundleMessageSource messageBundle;
+    /**
+     * ReadAll
+     */
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
     public Properties list(@RequestParam String lang){
