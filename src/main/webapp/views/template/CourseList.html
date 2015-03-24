@@ -1,0 +1,56 @@
+
+<div class="alert alert-success alert-dismissible" role="alert" ng-show="addSuccess">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span></button>
+    <strong>Success!</strong> Success adding a new product
+</div>
+<div class="alert alert-success alert-dismissible" role="alert" ng-show="editSuccess">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span></button>
+    <strong>Success!</strong> Success edit the product
+</div>
+<div class="alert alert-success alert-dismissible" role="alert" ng-show="deleteSucess">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span></button>
+    <strong>Success!</strong> Success delete the Product
+</div>
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Products</div>
+    <div class="panel-body">
+        <p>...</p>
+    </div>
+
+    <!-- Table -->
+    <table class="table table-hover">
+        <tr>
+            <th >#</th>
+            <th translate>listCourse.id</th>
+            <th translate>listCourse.name</th>
+            <th class="text-right" translate>listCourse.credit</th>
+            <th class="text-right" translate>listCourse.section</th>
+            <th translate>listCourse.edit</th>
+            <th translate>listCourse.delete</th>
+
+        </tr>
+        <tr ng-repeat="course in courses">
+            <td>{{$index+1}}</td>
+            <td>{{course.courseid}}</td>
+            <td>{{course.name}}</td>
+            <td class="text-right">{{course.credit | number}}</td>
+            <td class="text-right">{{course.section | number}}</td>
+            <td><a ng-href="#/editProduct/{{course.id}}"> <span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
+            <td><a ng-href="#/listProduct"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true" ng-click="deleteProduct(product.id)"></span></a></td>
+        </tr>
+        <tr>
+            <th></th>
+
+            <th></th>
+
+            <th></th>
+            <th></th>
+            <th></th>
+
+        </tr>
+    </table>
+</div>

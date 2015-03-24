@@ -3,7 +3,7 @@
 // Declare app level module which depends on views, and components
 var labApp = angular.module('labApp', [
     'ngRoute',
-    'productMainController',
+    'CourseMainController',
     'languageControllers',
     'languageServices',
     'pascalprecht.translate'
@@ -11,19 +11,12 @@ var labApp = angular.module('labApp', [
 labApp.config(['$routeProvider',
   function($routeProvider) {
   $routeProvider.
-      when('/addProduct',{
-          templateUrl: 'template/editProduct.html',
-          controller: 'addProductController'
+
+      when('/listCourse',{
+          templateUrl: 'template/CourseList.html',
+          controller: 'listCourseController'
       }).
-      when('/editProduct/:id',{
-          templateUrl: 'template/editProduct.html',
-          controller: 'editProductController'
-      }).
-      when('/listProduct',{
-          templateUrl: 'template/productList.html',
-          controller: 'listProductController'
-      }).
-       otherwise({redirectTo: '/listProduct'});
+       otherwise({redirectTo: '/listCourse'});
 }]);
 
 labApp.config(function($translateProvider){

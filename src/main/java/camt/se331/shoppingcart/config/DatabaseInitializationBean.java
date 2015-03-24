@@ -1,6 +1,8 @@
 package camt.se331.shoppingcart.config;
-import camt.se331.shoppingcart.entity.Product;
-import camt.se331.shoppingcart.repository.ProductRepository;
+import camt.se331.shoppingcart.entity.Course;
+
+import camt.se331.shoppingcart.repository.CourseRepository;
+
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
@@ -11,22 +13,18 @@ import java.util.Arrays;
 @Component
 public class DatabaseInitializationBean implements InitializingBean {
     @Autowired
-    ProductRepository productRepository;
+    CourseRepository courseRepository;
     @Override
     public void afterPropertiesSet() throws Exception {
-        Product[] initProduct = {
-                new Product(1l,"Kindle","the good book reader",6900.00),
-                new Product(2l,"Surface Pro","The unknow computer",34000.00),
-                new Product(3l,"Mac pro"," Mac book interim",44000.00),
-                new Product(4l,"Candle","use for lightenup the world",10.00),
-                new Product(5l,"Bin","User for what ?",200.00),
-                new Product(6l,"Telephone", "Call the others",150.00),
-                new Product(7l,"iPhone","What is it?",26000.00),
-                new Product(8l,"Galaxy Note 4","Who still use this ?",24000.00),
-                new Product(9l,"AngularJS","we hate it",2000.00),
-                new Product(10l,"Mazda 3","Very handsome guy use this",300000.00)
+        Course[] initCourse = {
+                new Course(1l,"953101","Computer and Programming",3,701),
+                new Course(2l,"953331","Compo Base Software",3,701),
+                new Course(3l,"953321","SQA",3,701),
+                new Course(4l,"953351","Test",3,701)
+
+
         };
-        productRepository.save(Arrays.asList(initProduct));
+        courseRepository.save(Arrays.asList(initCourse));
 
     }
 }

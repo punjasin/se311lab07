@@ -21,6 +21,7 @@ import java.util.Locale;
 @Import({PersistenceContext.class})
 public class AppConfig extends WebMvcConfigurerAdapter {
 
+
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/**").addResourceLocations("/views/").setCachePeriod(31556926);

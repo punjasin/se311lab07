@@ -21,8 +21,8 @@
 
     <script src="app.js"></script>
     <script src="js/controller.js"></script>
-    <script src="js/productController.js"></script>
-    <script src="js/productService.js"></script>
+    <script src="js/CourseController.js"></script>
+    <script src="js/CourseService.js"></script>
     <!-- add il8n script -->
     <script src="bower_components/angular-translate/angular-translate.js"></script>
     <script src="bower_components/angular-translate-loader-url/angular-translate-loader-url.js"></script>
