@@ -16,6 +16,13 @@ labApp.config(['$routeProvider',
           templateUrl: 'template/CourseList.html',
           controller: 'listCourseController'
       }).
+      when('/editCourse/:id',{
+          templateUrl: 'template/editCourse.html',
+          controller: 'editCourseController'
+      }). when('/addCourse',{
+          templateUrl: 'template/editCourse.html',
+          controller: 'addCourseController'
+      }).
        otherwise({redirectTo: '/listCourse'});
 }]);
 

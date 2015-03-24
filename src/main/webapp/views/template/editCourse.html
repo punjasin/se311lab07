@@ -1,0 +1,68 @@
+<div class="row-fluid">
+    <div class="row" ng-show="addPerson">
+        <h1>Add new Course</h1>
+    </div>
+    <div class="row" ng-show="editPerson">
+        <h1>Edit Course</h1>
+    </div>
+    <div class="col-md-4">
+        <form name="editform" novalidate>
+            <div class="form-group">
+                <!-- Sidebar content-->
+                <label translate for="courseid">listCourse.id</label>
+                <input ng-model="course.courseid" class="form-control" id="courseid" name="courseid" placeholder="id" required/>
+
+                <div class="alert alert-danger" role="alert" ng-show="editform.courseid.$error.required">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span>
+                    Course id is Required!
+                </div>
+            </div>
+            <div class="form-group">
+                <label translate for="coursename">listCourse.name</label>
+                <input ng-model="course.name" class="form-control" id="coursename"
+                       placeholder="coursename" name="coursename" required/>
+
+                <div class="alert alert-danger" role="alert" ng-show="editform.coursename.$error.required">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span>
+                    coursename is Required!
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label translate for="coursecredit">listCourse.edit</label>
+                <input ng-model="course.credit" name="coursecredit" class="form-control" id="coursecredit"
+                       placeholder="coursecredit" type="number" required/>
+
+                <div class="alert alert-danger" role="alert" ng-show="editform.coursecredit.$error.required">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span>
+                    coursecredit is Required!
+                </div>
+                <div class="alert alert-danger" role="alert" ng-show="editform.coursecredit.$error.number">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span>
+                    Enter the number!!
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label translate for="coursesection">listCourse.section</label>
+                <input ng-model="course.section" class="form-control" id="coursesection"
+                       placeholder="coursesection" name="coursesection" required/>
+
+                <div class="alert alert-danger" role="alert" ng-show="editform.coursename.$error.required">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span>
+                    coursename is Required!
+                </div>
+
+            </div>
+
+
+            <button translate type="submit" class="btn btn-default" ng-click="addCourse()" ng-show="addPerson">listCourse.add</button>
+            <button translate type="submit" class="btn btn-default" ng-click="editCourse()" ng-show="editPerson">listCourse.edit</button>
+        </form>
+    </div>
+</div>

@@ -25,7 +25,7 @@ CourseMainController.controller('listCourseController', ['$scope', '$http', '$ro
             $rootScope.editSuccess = false;
             $rootScope.deleteSuccess = false;
         });
-        $scope.deleteProduct = function (id) {
+        $scope.deleteCourse = function (id) {
             var answer = confirm("Do you want to delete the Course?");
             if (answer) {
                 courseServices.delete({id:id},function(){
@@ -45,7 +45,7 @@ CourseMainController.controller('editCourseController', ['$scope', '$http', '$ro
         });
         $scope.editCourse = function () {
 //$http.put("/product", $scope.product).then(function () {
-            courseServices.update({id:$scope.Course.id},$scope.course,function(){
+            courseServices.update({id:$scope.course.id},$scope.course,function(){
                 $rootScope.editSuccess = true;
                 $location.path("listCourse");
             });

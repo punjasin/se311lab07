@@ -39,10 +39,10 @@
         <div class="container-fluid">
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
+                    <li><a translate href="#/addCourse">listCourse.addCourse</a></li>
+                    <li><a translate href="#/listCourse" >listCourse.allCourse</a></li>
                     <li ng-class="{'active':currentLocale=='en'}"><a href="" ng-click="changeLanguage('en')">EN</a></li>
-                    <li ng-class="{'active':currentLocale=='en'}"><a href="" ng-click="changeLanguage('fr')">FR</a></li>
-                    <li ng-class="{'active':currentLocale=='en'}"><a href="" ng-click="changeLanguage('gr')">GR</a></li>
-                    <li ng-class="{'active':currentLocale=='en'}"><a href="" ng-click="changeLanguage('jp')">JP</a></li>
+                    <li ng-class="{'active':currentLocale=='en'}"><a href="" ng-click="changeLanguage('th')">TH</a></li>
                 </ul>
             </div>
         </div>
@@ -55,7 +55,7 @@
     <div class="row">
     <div class="col-md-2">
         <!-- Fixed left nav column -->
-        <div ng-include src="'template/leftnav.html'"></div>
+
     </div>
     <div class="col-md-10">
         <!-- Breadcrumbs
