@@ -23,7 +23,12 @@ labApp.config(['$routeProvider',
           templateUrl: 'template/editCourse.html',
           controller: 'addCourseController'
       }).
-       otherwise({redirectTo: '/listCourse'});
+      when('/viewCourse/:id',{
+          templateUrl: 'template/CourseList.html',
+          controller: 'ViewCourseController'
+      }).
+
+      otherwise({redirectTo: '/listCourse'});
 }]);
 
 labApp.config(function($translateProvider){

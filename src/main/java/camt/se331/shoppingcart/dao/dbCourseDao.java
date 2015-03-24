@@ -4,6 +4,9 @@ import camt.se331.shoppingcart.repository.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
+
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 /**
  * Created by Punjasin on 17/3/2558.
@@ -19,7 +22,15 @@ public class dbCourseDao implements CourseDAO {
     }
     @Override
     public List<Course> getCourses(String anyKeyword) {
-        return null;
+        HashSet output = new HashSet();
+        for(Course course:courseRepository.findAll()){
+            if (course.getName().toLowerCase().contains(anyKeyword.toLowerCase()) || course.getCourseid().contains(anyKeyword)){
+                output.add(course);
+            }
+        }
+        List<Course> outputList = (new ArrayList<Course>());
+        outputList.addAll(output);
+        return outputList;
     }
     @Override
     public Course getCourse(Long id) {

@@ -27,9 +27,10 @@ public class CourseController {
     }
 
     @RequestMapping(value = "course",method = RequestMethod.POST)
-    public @ResponseBody Course add(@RequestBody Course course, BindingResult bindingResult){
+    public Course add(@RequestBody Course course, BindingResult bindingResult){
         return courseService.addCourse(course);
     }
+
 
     @RequestMapping(value = "course/{id}",method = RequestMethod.GET)
     public  Course getCourse(@PathVariable("id") Long id){
@@ -39,6 +40,17 @@ public class CourseController {
     @RequestMapping(value = "course/{id}",method = RequestMethod.PUT)
     public  Course edit(@PathVariable("id") Long id,@RequestBody Course course, BindingResult bindingResult){
         return courseService.updateCourse(course);
+    }
+    @RequestMapping(value = "/course/name/id.json",method = RequestMethod.GET)
+
+    public @ResponseBody List<Course> getCourseByid(@RequestParam("id")String id ){
+        return courseService.getCourses(id);
+    }
+
+    @RequestMapping(value = "/course/name/name.json",method = RequestMethod.GET)
+
+    public @ResponseBody List<Course>  getCourseByKeyword(@RequestParam("name")String name ){
+        return courseService.getCourses(name);
     }
 
     @RequestMapping(value = "course/{id}",method = RequestMethod.DELETE)

@@ -16,9 +16,16 @@
 </div>
 <div class="panel panel-default">
     <!-- Default panel contents -->
-    <div class="panel-heading">Products</div>
+    <div class="panel-heading">Course</div>
     <div class="panel-body">
-        <p>...</p>
+        <form ng-submit="getCourse()">
+            input name: <input ng-model="name">
+            <button type="submit" class="btn btn-primary">submit</button>
+        </form>
+        <form ng-submit="getCourseid()">
+            input id: <input ng-model="id">
+            <button type="submit" class="btn btn-primary">submit</button>
+        </form>
     </div>
 
     <!-- Table -->

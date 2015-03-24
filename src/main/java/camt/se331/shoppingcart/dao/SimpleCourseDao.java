@@ -13,12 +13,11 @@ import java.util.*;
 @Repository
 @Profile("db.SimpleDao")
 public class SimpleCourseDao implements  CourseDAO{
-
+@Autowired
     private Set<Course> courses;
-    @Autowired
+
     public SimpleCourseDao(){
         Course[] initCourse =  {
-
                };
         courses = new TreeSet<Course>(Arrays.asList(initCourse));
 
@@ -32,7 +31,7 @@ public class SimpleCourseDao implements  CourseDAO{
     public List<Course> getCourses(String anyKeyword) {
         HashSet output = new HashSet();
         for(Course course:courses){
-            if (course.getName().contains(anyKeyword) || course.getCourseid().contains(anyKeyword)){
+            if (course.getName().contains(anyKeyword)){
                 output.add(course);
             }
         }
