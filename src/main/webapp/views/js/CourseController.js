@@ -5,8 +5,7 @@ CourseMainController.controller('addCourseController', ['$scope', '$http', '$loc
         $scope.course = {};
         $scope.addPerson = true;
         $scope.editPerson = false;
-        $scope.addProduct = function () {
-//$http.post("/product", $scope.product).success(function () {
+        $scope.addCourse = function () {
             courseServices.save($scope.course,function(){
                 $rootScope.addSuccess = true;
                 $location.path("listCourse");
@@ -26,9 +25,6 @@ CourseMainController.controller('listCourseController', ['$scope', '$http', '$ro
             $rootScope.editSuccess = false;
             $rootScope.deleteSuccess = false;
         });
-
-
-
             $scope.getCourse = function(){
                 $http.get('http://localhost:8080/course/name/name.json',
                     {params:{name:$scope.name}}).success(function(data){
@@ -44,7 +40,15 @@ CourseMainController.controller('listCourseController', ['$scope', '$http', '$ro
         }
         $scope.getCourseid();
 
-
+        $scope.deleteCourse = function (id) {
+            var answer = confirm("Do you want to delete the Course?");
+            if (answer) {
+                courseServices.delete({id:id},function(){
+                    $rootScope.deleteSuccess = true;
+                    $route.reload();
+                })
+            }
+        }
     }]);
 CourseMainController.controller('editCourseController', ['$scope', '$http', '$routeParams', '$location', '$rootScope','courseServices',
     function ($scope, $http, $routeParams, $location, $rootScope,courseServices) {
